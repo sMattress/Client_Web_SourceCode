@@ -1,0 +1,21 @@
+<ion-view title="个人信息" >
+  <ion-header-bar align-title="center" class="bar-light">
+    <a class="button button-clear" href="#/tab/account"><i class="icon ion-arrow-left-c"></i></a> <!--返回箭头 -->
+    <h1 class="title">个人信息</h1>
+    <a class="button button-clear" href="#/editPerson"><i class="icon ion-android-create"></i></a>
+ </ion-header-bar>
+    <ion-content>
+      <img ng-src="{{userImg}}" style="width:100PX;height:100px;margin:10px auto;display:block; border-radius:50%; overflow:hidden;border:2px solid #fff;"/>
+      <div class="list">
+        <label class="item item-input">
+          用户名：{{userName}}
+        </label>
+        <label class="item item-input">
+          生日：{{birthday}}
+        </label>
+        <label class="item item-input">
+          性别：{{sex}}
+        </label>
+      </div>  
+    </ion-content>
+</ion-view>

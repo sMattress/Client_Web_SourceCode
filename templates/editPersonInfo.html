@@ -1,0 +1,21 @@
+<ion-view title="修改个人信息" >
+  <ion-header-bar align-title="center" class="bar-light">
+    <a class="button button-clear" href="#/person"><i class="icon ion-arrow-left-c"></i></a> <!--返回箭头 -->
+    <h1 class="title">修改个人信息</h1>
+ </ion-header-bar>
+    <ion-content>
+      <img ng-src="{{userImg.value}}" style="width:100PX;height:100px;margin:10px auto;display:block; border-radius:50%; overflow:hidden;border:2px solid #fff;"/>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="用户名" ng-model="userName.value">
+        </label>
+        <label class="item item-input">
+          <input type="date" placeholder="生日" ng-model="birthday.value">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="性别" ng-model="sex.value">
+        </label>
+      </div>
+      <a class="button button-positive button-block"  ng-click="updateUserInfo()">提交</a>
+    </ion-content>
+</ion-view>

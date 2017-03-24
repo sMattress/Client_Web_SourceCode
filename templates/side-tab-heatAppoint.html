@@ -1,0 +1,80 @@
+<div class="" ng-show="selected" ng-controller="heatController" style="font-family:微软雅黑;">
+
+  <div class="row header" style="height:10%;margin-top:8px;">
+    <div class="col col-middle" ng-click="changModeSwitch()">
+      <div class="switch_search" >
+        <div class="switch_search_tab"   ng-class="modeSwitch? 'white_search_tab' : ''">
+          ON
+        </div>
+        <div class="switch_search_tab" ng-class="modeSwitch? '' : 'white_search_tab'">
+         OFF
+        </div>
+        <div class="switch_bg" ng-class=" modeSwitch? 'search_left' :'search_right'"></div>
+     </div>
+    </div>
+    <div class="col col-60 col-middle middle-div" id="diviceName" >
+      <div class="dropdown">
+        <label >{{device_alias}}</label>
+        <switch-device on-switch="heatSwitchDevice"></switch-device>
+      </div>
+      <span ng-click="switchSide()">{{side_str}}</span>
+    </div>
+    <div class="col col-middle" >
+      <span style="font-size:16px;color:#9ef63d;letter-spacing:0.43px;text-align:center;" ng-click="updateWarm()">确认</span>
+    </div>
+  </div>
+  <div class="row" >
+    <img src="img/line_nav.png" style="width:100%">
+  </div>
+  <div class="row" style="height:10%;">
+    <!--空-间距  -->
+  </div>
+  <div class=""  ng-hide="!modeSwitch" style="height:20%">
+    <div class="row">
+      <div class="col" style="position:relative;z-index:-1"><img src="img/circle.png">
+        <div style="position:absolute;left:43px;top:30px;">
+                适宜温度
+        </div>
+      </div>
+      <div class="col col-offset-10 col-center" style="text-align:center;font-size:25px;">
+          {{targetTemperature}} ℃
+      </div>
+      <div class="col  col-15 col-center"><img src="img/button_minus_light.png" style="width:30px; height:30px" ng-click="targetTemperature = targetTemperature-1;"></div>
+      <div class="col col-center"><img src="img/button_plus_light.png" style="width:30px; height:30px" ng-click="targetTemperature = targetTemperature+1;"></div>
+    </div>
+    <div class="row row-center" style="margin-top:30px">
+      <div class="col col-center" style="position:relative;z-index:-1"><img src="img\circle.png">
+        <div style="position:absolute;left:43px;top:30px;">
+              预约
+        </div>
+        <div style="position:absolute;left:30px;top:50px;">
+          <span class="margin-left:80%">开机时间</span>
+        </div>
+      </div>
+      <div class="col col-40 col-center" style="text-align:center;font-size:25px;" ng-click="showTimePicker()">{{startTime}}</div>
+      <div class="col"><i class="ion ion-close" style="color:red" ng-hide="!warm_open_time_changed" ng-click="startTime_cancel()"></i></div>
+    </div>
+    <div class="row row-center" style="margin-top:30px">
+      <div class="col col-center" style="position:relative;z-index:-1"><img src="img/circle.png">
+        <div style="position:absolute;left:43px;top:30px;">
+              智能
+        </div>
+        <div style="position:absolute;left:30px;top:50px;">
+          <span class="margin-left:80%">温度曲线</span>
+        </div>
+      </div>
+      <div class="col col-offset-10 col-center"><img src="img/line_broken@2x.png" style="width:175%; height:100%"></div>
+      <div class="col col-top">
+        <div class="switch_search" ng-click="autoTemperatureControl = !autoTemperatureControl">
+          <div class="switch_search_tab" ng-class="autoTemperatureControl ? 'white_search_tab' : ''">
+            ON
+          </div>
+          <div class="switch_search_tab"  ng-class="autoTemperatureControl? '' : 'white_search_tab'">
+            OFF
+          </div>
+          <div class="switch_bg" ng-class="autoTemperatureControl ? 'search_left' :'search_right'"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

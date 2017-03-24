@@ -1,0 +1,18 @@
+<ion-view view-title="个人">
+  <ion-content>
+    <div style="position: relative;width:100%">
+      <div style="position: absolute;width:100%;text-align:center;margin:80px auto;">
+        <!-- 上层 -->
+        <img ng-src="{{userImg}}" style="width:100PX;height:100px;margin:10px auto;display:block; border-radius:50%; overflow:hidden;border:2px solid #fff;"/>
+        <label style="color:#fff;">{{userName}}</label>
+      </div>
+      <!-- 背景 -->
+      <img src="./img\background.jpg" style="width:100%"/>
+    </div>
+    <div class="list" >
+      <a class="item item-icon-left" href="#/person" ><i class="icon ion-android-contact"></i>个人设置</a>
+      <a class="item item-icon-left" href="#/divices"><i class="icon ion-settings"></i>设备管理</a>
+      <a class="item item-icon-left" ng-click="showLogoutPop()"><i class="icon ion-android-exit"></i>解绑账户</a>
+    </div>
+  </ion-content>
+</ion-view>

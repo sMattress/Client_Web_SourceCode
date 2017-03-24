@@ -1,0 +1,61 @@
+<div class="" ng-show="selected" ng-controller="therapyController" style="font-family:微软雅黑;">
+  <div class="row " style="height:10%;margin-top:8px;">
+    <div class="col col-middle" ng-click="changModeSwitch()">
+      <div class="switch_search" >
+        <div class="switch_search_tab"   ng-class="modeSwitch? 'white_search_tab' : ''">
+          ON
+        </div>
+        <div class="switch_search_tab" ng-class="modeSwitch? '' : 'white_search_tab'">
+         OFF
+        </div>
+        <div class="switch_bg" ng-class=" modeSwitch? 'search_left' :'search_right'"></div>
+     </div>
+    </div>
+    <div class="col col-60 col-middle middle-div" id="diviceName" >
+      <div class="dropdown">
+        <label >{{device_alias}}</label>
+        <switch-device on-switch="therepySwitchDevice"></switch-device>
+      </div>
+      <span ng-click="switchSide()">{{side_str}}</span>
+    </div>
+    <div class="col col-middle" >
+      <span style="font-size:16px;color:#9ef63d;letter-spacing:0.43px;text-align:center;" ng-click="updateTherapy()">确认</span>
+    </div>
+  </div>
+  <div class="row" >
+    <img src="img/line_nav.png" style="width:100%">
+  </div>
+  <div class="row" style="height:10%;">
+    <!--空-间距  -->
+  </div>
+  <div class=""  ng-show="modeSwitch" style="height:20%;">
+    <div class="row">
+      <div class="col" style="position:relative;z-index:-1"><img src="img/circle.png">
+        <div style="position:absolute;left:43px;top:30px;">
+          理疗时长
+        </div>
+      </div>
+      <div class="col col-40 col-offset-10 col-center" style="text-align:center;font-size:25px;">
+        {{workTime}}分钟
+      </div>
+      <div class="col  col-15 col-center"><img src="img/button_minus_light.png" style="width:30px; height:30px" ng-click="workTime = workTime-1;"></div>
+      <div class="col col-center"><img src="img/button_plus_light.png" style="width:30px; height:30px" ng-click="workTime = workTime+1;"></div>
+    </div>
+    <div class="row" style="margin-top:30px">
+      <div style="width:100px;position:relative;z-index:-1"><img src="img/circle.png" style="margin-left:8px">
+         <div style="position:absolute;left:30px;top:30px;">
+                 允许理疗
+        </div>
+        <div style="position:absolute;left:40px;top:50px;">
+          <span >时间</span>
+        </div>
+      </div>
+      <div class="col col-offset-10 col-center" style="font-size:13px">
+          在预约时段内床垫会时刻待命，只要您躺在床上，设备会自动开始理疗
+      </div>
+    </div>
+    <div class="row row-center">
+      <ion-range-slider min="0" max="86400" from="startTime" to="overTime" update="updateSlider"></ion-range-slider>
+    </div>
+  </div>
+</div>

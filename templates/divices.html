@@ -1,0 +1,19 @@
+<ion-view title="设备管理">
+  <ion-header-bar align-title="center" class="bar-light">
+    <a class="button button-clear" href="#/tab/account"><i class="icon ion-arrow-left-c"></i></a> <!--返回箭头 -->
+    <h1 class="title">设备管理</h1>
+    <a class="button button-clear" href="#/addDivice" ><i class="icon ion-plus-round"></i></a>
+ </ion-header-bar>
+    <ion-content>
+      <ion-list show-delete="shouldShowDelete" >
+        <ion-toggle ng-model="shouldShowDelete">
+          显示删除?
+        </ion-toggle>
+        <ion-item ng-repeat="divice in divices">
+          <ion-delete-button class="ion-minus-circled"></ion-delete-button>
+          <a ng-click='changeAlias(divice.device_name)'>{{divice.alias}}</a>
+        </ion-item>
+      </ion-list>
+
+    </ion-content>
+</ion-view>

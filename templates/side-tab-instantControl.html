@@ -1,0 +1,95 @@
+<div class="" ng-show="selected" ng-controller="instantController" ng-click="bodyClick()" >
+  <div class="row header" style="height:10%">
+    <div class="col" id="diviceName" style="text-align:center">
+      <div class="middle-div">
+        <div class="dropdown">
+          <label >{{device_alias}}</label>
+          <switch-device on-switch="instantSwitchDevice"></switch-device>
+        </div>
+        <img src="img\line_nav.png" style="width:100%;height:2px;">
+      </div>
+    </div>
+  </div>
+  <div class="row" style="height:7%;">
+  <!--空-间距  -->
+  </div>
+  <!-- 状态 左右温度 -->
+  <div style="height:200px;">
+    <img src="img/data_border.png" style="position:relative;z-index:-1;height:200px;margin:0 auto;display:block;">
+    <div class="row" style="position:relative;z-index:10;text-align:center;top:-200px;height:200px;">
+      <div class="col">
+        <div style="height:20px;padding:5px 0;">
+          <label style="display:block;">左侧</label>
+        </div>
+        <div class="" style="height:140px;padding:20px 0;">
+          <img src="img/temperature_bordoer copy.png" style="position:relative;z-index:-1;height:100px;margin:0 auto;display:block;">
+          <h3 style="color:#fff;position:relative;top:-80px;z-index:10;" ><span >{{left_temper}}</span>℃</h3>
+        </div>
+        <div >
+          <label style="border-radius:10%;border:1px dotted #fff;background-color:transparent;padding:2px 5px;" >{{left_state}}</label>
+        </div>
+      </div>
+      <div class="col">
+        <div style="height:20px;padding:5px 0;">
+          <label style="display:block;">右侧</label>
+        </div>
+        <div class="" style="height:140px;padding:20px 0;">
+          <img src="img\temperature_bordoer copy.png" style="position:relative;z-index:-1;height:100px;margin:0 auto;display:block;">
+          <h3 style="color:#fff;position:relative;top:-80px;z-index:10;" ><span >{{right_temper}}</span>℃</h3>
+        </div>
+        <div >
+          <label style="border-radius:10%;border:1px dotted #fff;background-color:transparent;padding:2px 5px;" >{{right_state}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 按钮 左右加热 -->
+  <div class="row">
+    <div class="col">
+      <!-- <div style="background-image:url(img/heat_left_unselect.png);width:87px;height:40px;" id="left_heat" ng-click="click(1)"></div> -->
+      <img switch-btn onImage="img/heat_left_selected.png" offImage="img/heat_left_unselect.png" my-value="left_heat_state"
+     style="width:80px;" ng-click="temper_click(4)" is-control="true"></img>
+    </div>
+    <div class="col">
+      <label>{{msg}}</label>
+    </div>
+    <div class="col">
+      <img switch-btn onImage="img/heat_right_selected.png" offImage="img/heat_right_unselect.png" my-value="right_heat_state"
+     style="width:80px;float:right;" ng-click="temper_click(5)" is-control="true"></img>
+    </div>
+  </div>
+  <!-- 覆盖层 -->
+  <div  class="mask" ng-show="!power"></div>
+  <!-- 按钮 左右 加减温度 -->
+  <div class="row" style="height:30%;position:relative;top:-20px;">
+    <div style="height:100%;margin:0 auto;">
+      <div class="row" style="height:95px;">
+        <img switch-btn offImage="img/left_plus_touched.png" onImage="img/left_plus_untouch.png" my-value="left_heat_state"
+         style="width:70px;height:70px;" ng-click="temper_click(0)" is-control="false"></img>
+         <img switch-btn offImage="img/right_plus_touched.png" onImage="img/right_plus_untouch.png" my-value="right_heat_state"
+          style="width:70px;height:70px;" ng-click="temper_click(2)" is-control="false"></img>
+      </div>
+      <div class="row" style="height:90px;position:relative;top:-20px;">
+        <img switch-btn offImage="img/left_minus_touched.png" onImage="img/left_minus_untouch.png" my-value="left_heat_state"
+         style="width:70px;height:70px;" ng-click="temper_click(1)" is-control="false"></img>
+         <img switch-btn offImage="img/right_minus_touched.png" onImage="img/right_minus_untouch.png" my-value="right_heat_state"
+          style="width:70px;height:70px;" ng-click="temper_click(3)" is-control="false"></img>
+      </div>
+      <!-- 按钮 电源键 -->
+      <img switch-btn style="z-index:3000;width:60px;margin:0 auto;position:relative;top:-140px;display:block;"
+      ng-click="!power" offimage="img/power_off.png" onImage="img/power_on.png" my-value="power" is-control="true"></img>
+    </div>
+  </div>
+
+  <!-- 按钮 左右 理疗-->
+  <div class="row" style="position:relative;top:-15%;">
+    <div class="col">
+      <img switch-btn onImage="img/treat_left_selected.png" offImage="img/treat_left_unselect.png" my-value="left_treat_state"
+      style="width:80px;" ng-click="temper_click(6)" is-control="true"></img>
+    </div>
+    <div class="col">
+      <img switch-btn onImage="img/treat_right_selected.png" offImage="img/treat_right_unselect.png" my-value="right_treat_state"
+      style="width:80px;float:right;" ng-click="temper_click(7)" is-control="true"></img>
+    </div>
+  </div>
+</div>
